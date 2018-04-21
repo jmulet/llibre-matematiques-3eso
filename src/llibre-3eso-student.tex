@@ -1,0 +1,53 @@
+\PassOptionsToPackage{export}{adjustbox}
+\documentclass[11pt, a4paper, twoside, pdf]{book}
+% Opcions 
+%  draft : mostra una marca d'aigua sense figures
+%  bn : la majoria de colors són escala de grisos --> Utilitzar per la versio per imprimir
+%  ebook: per generar un ebook amb marca d'aigua
+\usepackage[]{iesbbook}
+ 
+
+\makesolucionari
+
+\begin{document}
+  
+ 	
+\pagestyle{empty}
+
+\include{portada}
+
+
+\include{chap1} 
+\include{chap2}
+\include{chap3} 
+\include{chap4} 
+
+
+\include{chap5}
+\include{chap6}
+\include{chap7}
+\include{chap8}
+
+
+\include{chap9}
+\include{chap10}
+\include{chap11}
+
+\setcounter{chapter}{12}
+\def\currentname{Síntesi}
+
+
+\include{sintesi}
+
+\newpage 
+\immediate\closeout\studentkeys
+  
+\def\currentname{Solucionari}
+\fakechapter[\simbolclaubig]{ Solucions }
+\addcontentsline{toc}{part}{Solucions}
+\begin{multicols}{2}
+	\fontsize{10.5}{12.6}\selectfont
+	\input{studentkeys}
+\end{multicols}
+
+\end{document} 

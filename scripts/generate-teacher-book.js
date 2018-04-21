@@ -1,23 +1,23 @@
-var fs = require("fs");
-var rmnum = require("roman-numerals");
+let fs = require("fs");
+let rmnum = require("roman-numerals");
 
 
-var MAX_PAGES=162;
-var OFFSET = 2;
-var NOM_LLIBRE = "llibre-3ESO-color";
+let MAX_PAGES=162;
+let OFFSET = 2;
+let NOM_LLIBRE = "./output-student/llibre-3eso-student";
 
-var pagesToEnlarge = [];
-var pagesToReduce = [124];
-var pagesToDoubleCol = [];
-var forceOneColumn = [12, 14, 15, 49, 94, 111, 116];
-var skipNotes = [8, 22, 26, 28,  32, 38, 40, 62, 44, 71, 72, 77, 88, 89, 102, 124, 134, 146, 147];
-var noOutputForPages = [152]
-var beforeFlow = {31: 38, 72: 48, 88:57, 89: 67};	// 32:46 premature output of {page: exer} from page and activity since exer to page-1
-var laterFlow = {40:53, 146:69, 129:7, 134: 49,147:83};		//  postpone output of {page: exer} from page and activity from exer to page+1
-var forceColumns = {32: {46:4}, 71:{48:3}, 72:{48:3, 51:2, 53:2, 54:3, 55:3}, 81:{26:1}, 97:{39:1, 40:1, 41:1, 42:1} };
+let pagesToEnlarge = [];
+let pagesToReduce = [124];
+let pagesToDoubleCol = [];
+let forceOneColumn = [12, 14, 15, 49, 94, 111, 116];
+let skipNotes = [8, 22, 26, 28,  32, 38, 40, 62, 44, 71, 72, 77, 88, 89, 102, 124, 134, 146, 147];
+let noOutputForPages = [152]
+let beforeFlow = {31: 38, 72: 48, 88:57, 89: 67};	// 32:46 premature output of {page: exer} from page and activity since exer to page-1
+let laterFlow = {40:53, 146:69, 129:7, 134: 49,147:83};		//  postpone output of {page: exer} from page and activity from exer to page+1
+let forceColumns = {32: {46:4}, 71:{48:3}, 72:{48:3, 51:2, 53:2, 54:3, 55:3}, 81:{26:1}, 97:{39:1, 40:1, 41:1, 42:1} };
 function getForceColumns(p, i){
-	var ex = null;
-	var page = forceColumns[p];
+	let ex = null;
+	let page = forceColumns[p];
 	if(page){
 		ex = page[i]
 	}
@@ -25,11 +25,11 @@ function getForceColumns(p, i){
 }
 
 
-var json = [];
+let json = [];
 
 try{
-	var text = fs.readFileSync("studentkeys.ans", "utf-8");
-	var end = text.lastIndexOf(",");
+	let text = fs.readFileSync("./output-student/studentkeys.ans", "utf-8");
+	let end = text.lastIndexOf(",");
 	text = "["+text.substring(0, end)+"]";
 	text = text.replace(/\\/g, "\\\\");
 	json = JSON.parse(text);
@@ -39,19 +39,20 @@ try{
 	return;
 }
 
-var extra = "";
+let extra = "";
 try{
-	extra = fs.readFileSync("./teacher-book-extra.tex", "utf-8");
+	extra = fs.readFileSync("./src/teacher-book-extra.tex", "utf-8");
 } catch(Ex){
 	console.log(Ex);
 	//Create empty file
 	//fs.openSync("./teacher-book-extra.tex", 'w');
 }
 
-var cachePage = [];
+let cachePage = [];
  
-var tex = [];
+let tex = [];
 function preamble(tex){
+	tex.push("%% This is an automatically generated file. Changes will be lost");
 	tex.push("\\documentclass{book}");
 	tex.push("\\usepackage{iesbbook}  % main style");
 	tex.push("\\usepackage{pdfpages}  % insert pages from external pdf");
@@ -60,7 +61,7 @@ function preamble(tex){
 	//tex.push("\\let\\ofrac\\frac");
 	//tex.push("\\let\\frac\\dfrac");
 	//tex.push("\\usepackage{pxfonts}");
-	tex.push("\\input{./teacher-book-extra}")
+	tex.push("\\input{teacher-book-extra}")
 
 	//tex.push("\\geometry{a4paper,total={170mm,257mm},left=20mm,right=13mm,top=20mm,bottom=20mm}");
 	//tex.push("\\usepackage[export]{adjustbox}");
@@ -161,14 +162,14 @@ function handleNewItem(tex, i){
 
 function handlePageVertical(tex, bean){
 	tex.push("");
-	var page = bean.p;
+	let page = bean.p;
 
 	if(!page){
 		tex.push("	\\includepdf[pages="+bean.n+"]{"+NOM_LLIBRE+".pdf}");
 
 		//check if extra material must be included?
 		if(bean.n>OFFSET){
-			var roman = rmnum.toRoman(bean.n-OFFSET).toLowerCase();
+			let roman = rmnum.toRoman(bean.n-OFFSET).toLowerCase();
 			console.log("Searching ", "{\\page"+roman+"}");
 			if(extra.indexOf(("page"+roman+"}"))>=0){
 				console.log("Included ", "{\\page"+roman+"}");
@@ -193,26 +194,26 @@ function handlePageVertical(tex, bean){
 			if(index===1){	
 				tex.push("\\begin{enumerate}");
 			}
-			var opts = page.exer[i].opts;
+			let opts = page.exer[i].opts;
 			exer = page.exer[i].answers;
 			 
 			if(exer.length===1){
 				handleNewItem(tex, i);
-				var anstext = exer[0];
+				let anstext = exer[0];
 				//check for errors in anstext
 				anstext = anstext.replace(/end \{tasks\}/gi,"end{tasks}").replace(/begin \{tasks\}/gi,"begin{tasks}").replace(/euro \{\}/gi, "euro{}").replace(/infy/gi,"infty")  
 				tex.push(anstext);
 			} else {
 				
-				var maxtlen = 0;
-				var cols = 3;
+				let maxtlen = 0;
+				let cols = 3;
 				if(opts.cols){
 					cols = opts.cols;	
 				} else {
 
 				//Automatic length control
 				exer.forEach(function(t){
-					var ttemp = t.replace(/\\frac/gi, "").replace(/\\sqrt/gi, "").replace(/^/gi, "");
+					let ttemp = t.replace(/\\frac/gi, "").replace(/\\sqrt/gi, "").replace(/^/gi, "");
 					if(ttemp.length>maxtlen){
 						maxtlen = ttemp.length;
 					}
@@ -231,7 +232,7 @@ function handlePageVertical(tex, bean){
 			    tex.push(" \\begin{tasks}[label-format=\\bfseries\\large]("+cols+")");
 				
 				exer.forEach(function(t){
-					var decora = "";
+					let decora = "";
 					if(t.length>30){
 						decora = "*";
 					}
@@ -259,14 +260,14 @@ function handlePageVertical(tex, bean){
 
 function handlePageSideBySide(tex, bean){
 	tex.push("");
-	var page = bean.p;
+	let page = bean.p;
 
 	if(!page){
 		tex.push("	\\includepdf[pages="+bean.n+"]{"+NOM_LLIBRE+".pdf}");
 
 		//check if extra material must be included?
 		if(bean.n>OFFSET){
-			var roman = rmnum.toRoman(bean.n-OFFSET).toLowerCase();
+			let roman = rmnum.toRoman(bean.n-OFFSET).toLowerCase();
 			console.log("Searching ", "{\\page"+roman+"}");
 			if(extra.indexOf(("page"+roman+"}"))>=0){
 				console.log("Included ", "{\\page"+roman+"}");
@@ -279,14 +280,14 @@ function handlePageSideBySide(tex, bean){
  		return;
 	} 
 
-	var environment = "pageandsol";
-	var LIMIT_CUT_TASK = 100;
+	let environment = "pageandsol";
+	let LIMIT_CUT_TASK = 100;
 	if(bean.dc){
 		environment = "pageandsolTwo";
 		LIMIT_CUT_TASK = 30;
 	}
 
-	var VSPACE ="0.25cm";
+	let VSPACE ="0.25cm";
 	if(bean.enlarge){
 		VSPACE ="0.5cm";
 	}
@@ -303,12 +304,12 @@ function handlePageSideBySide(tex, bean){
 			if(index===1){	
 				tex.push("\\begin{enumerate}");
 			}
-			var opts = page.exer[i].opts;
+			let opts = page.exer[i].opts;
 			exer = page.exer[i].answers;
 			 
 			if(exer.length===1){
 				handleNewItem(tex, i);
-				var anstext = exer[0];
+				let anstext = exer[0];
 				//check for errors in anstext
 				anstext = fixText(anstext);
 				if(!bean.dc){
@@ -319,8 +320,8 @@ function handlePageSideBySide(tex, bean){
 				tex.push("\\mbox{}\\vspace{0.25cm}\n");
 			} else {
 				
-				var maxtlen = 0;
-				var cols = 3;
+				let maxtlen = 0;
+				let cols = 3;
 
 				if(opts.cols){
 					
@@ -331,7 +332,7 @@ function handlePageSideBySide(tex, bean){
 
 					//Automatic length control
 					exer.forEach(function(t){
-						var ttemp = t.replace(/\\frac/gi, "").replace(/\\sqrt/gi, "").replace(/^/gi, "");
+						let ttemp = t.replace(/\\frac/gi, "").replace(/\\sqrt/gi, "").replace(/^/gi, "");
 						if(ttemp.length>maxtlen){
 							maxtlen = ttemp.length;
 						}
@@ -349,7 +350,7 @@ function handlePageSideBySide(tex, bean){
 				if(exer.length==4 && cols==3){
 					cols=2;
 				}
-				var nnn = getForceColumns(bean.n-OFFSET, i);
+				let nnn = getForceColumns(bean.n-OFFSET, i);
 				if(nnn){
 					console.log("getForceColumns ",bean.n-OFFSET, ", ", i," = ",nnn)
 					cols = nnn;
@@ -359,11 +360,11 @@ function handlePageSideBySide(tex, bean){
 			    tex.push(" \\begin{tasks}[label-format=\\bfseries\\large]("+cols+")");
 				
 				exer.forEach(function(t){
-					var t2= fixText(t);
+					let t2= fixText(t);
 					if(!bean.dc){
 						t2 = t2.replace(/\\linebreak/," ");
 					}
-					var decora = "";
+					let decora = "";
 					if(t2.length>LIMIT_CUT_TASK){
 						decora = "*("+(cols+1)+")";
 					}
@@ -389,8 +390,8 @@ function handlePageSideBySide(tex, bean){
 
 	//Add extra stuff if applicable
 	if(bean.n>OFFSET){
-		var delta = bean.n-OFFSET;
-		var roman = rmnum.toRoman(delta).toLowerCase();
+		let delta = bean.n-OFFSET;
+		let roman = rmnum.toRoman(delta).toLowerCase();
 		console.log("Search ",delta," : ",roman)
 		if(extra.indexOf(("page"+roman+"}"))>=0){
 			console.log("Found ", "{\\page"+roman+"}");
@@ -417,7 +418,7 @@ function handlePageSideBySide(tex, bean){
 //Sort answers by chapter and by page
 //pages = { 8: {exercici1: {opts: {}, answers: ] } } }
 
-var pages = {};
+let pages = {};
 json.forEach(function(e){
 	if(e.part){
 		e.chap = e.part;
@@ -426,7 +427,7 @@ json.forEach(function(e){
 
 
 function getPage(n){
-	var page = pages[n]; 
+	let page = pages[n]; 
 	if(!page){
 		pages[n] = {exer: {}, order: [] };
 		page = pages[n];
@@ -440,8 +441,8 @@ function getPage(n){
 
 console.log(">>>>>>>>>>>>>>>>>>>>> MANAGE REFLOW DIRECTLY FROM JSON object");
 
-var op = 0;
-var found1, found2
+let op = 0;
+let found1, found2
 
 json.forEach(function(e){
 
@@ -451,11 +452,11 @@ json.forEach(function(e){
 		op = e.page
 	}
 
-	var n = e.page;
-	var realPage = n;
+	let n = e.page;
+	let realPage = n;
 	//Reflow exercicis to previous or latter page
-	var toLaterFlow = laterFlow[n];
-	var toBeforeFlow = beforeFlow[n];
+	let toLaterFlow = laterFlow[n];
+	let toBeforeFlow = beforeFlow[n];
  
 
 	if(toLaterFlow){
@@ -488,10 +489,10 @@ console.log(">>>>>>>>>>>>>>>>>>>>> END MANAGE REFLOW");
 console.log(">>>>>>>>>>>>>>>>>>>>> BEGIN BUILDING pages object from JSON");
 json.forEach(function(e){
 	 
-	var page = getPage(e.page); 
+	let page = getPage(e.page); 
 	
-	var exer = page.exer[e.exer];
-	var order = page.exer[e.order];
+	let exer = page.exer[e.exer];
+	let order = page.exer[e.order];
 	
 	if(!exer){
 		//Must expand answers in case of array defined by [xxx, yyy, zzz]. Note that [] are mandatory
@@ -501,9 +502,9 @@ json.forEach(function(e){
 		//Check if e contains opts
 		if(e.opts){
 			e.opts.toLowerCase().split(",").forEach(function(opt){
-							var pair = opt.split("=");
-							var key = (pair[0] || "").trim().toLowerCase();
-							var value = pair[1].trim();	
+							let pair = opt.split("=");
+							let key = (pair[0] || "").trim().toLowerCase();
+							let value = pair[1].trim();	
 							if(key==="cols"){
 									try{
 										value = parseInt(value);
@@ -515,7 +516,7 @@ json.forEach(function(e){
 						})
 		}
 
-		var tmp = e.ans.trim();
+		let tmp = e.ans.trim();
 		if(tmp.indexOf("[")===0){
 			 tmp.substring(1, tmp.length-1).split(", ").forEach(function(t){
 				page.exer[e.exer].answers.push(t);
@@ -535,14 +536,14 @@ noOutputForPages.forEach(function(p){
 });
 preamble(tex);
 
-for(var kk=1; kk<MAX_PAGES; kk++){
+for(let kk=1; kk<MAX_PAGES; kk++){
 	console.log("Processing page ",kk)
 	//Automaticament totes les pàgines que contenguin graphics renderitzar-les en double column
 
-	var p = kk>=OFFSET? pages[kk-OFFSET]: null;
-	var cg = false;
+	let p = kk>=OFFSET? pages[kk-OFFSET]: null;
+	let cg = false;
 	if(p){
-		for(var exern in p.exer){
+		for(let exern in p.exer){
 			p.exer[exern].answers.forEach(function(a){
 				if(a.indexOf("includegraphics")>=0){
 					cg = true;
@@ -550,7 +551,7 @@ for(var kk=1; kk<MAX_PAGES; kk++){
 			});
 		}
 	}
-	var rkk = kk - OFFSET;
+	let rkk = kk - OFFSET;
 	//Include a new page in Vertical mode
 	 handlePageSideBySide(tex, {n: kk, 
 	 							p: p, 
@@ -565,4 +566,4 @@ for(var kk=1; kk<MAX_PAGES; kk++){
 tex.push("\\end{document}");
 
 console.log("Dumping generated tex file... teacher-book.tex")
-fs.writeFileSync("teacher-book.tex", tex.join("\n"));
+fs.writeFileSync("./src/llibre-3eso-teacher.tex", tex.join("\n"));

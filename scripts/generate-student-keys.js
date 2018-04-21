@@ -1,38 +1,38 @@
-var fs=require("fs");
+let fs=require("fs");
 
 //Page:{Exercice: columns}
-var forceColumns = {9:{4:4}, 10:{5:4, 6:4}, 11:{12:3}, 57:{45:2} };
+let forceColumns = {9:{4:4}, 10:{5:4, 6:4}, 11:{12:3}, 57:{45:2} };
 
 function getForceColumns(p, i){
-	var ex = null;
-	var page = forceColumns[p];
+	let ex = null;
+	let page = forceColumns[p];
 	if(page){
 		ex = page[i]
 	}
 	return ex;
 }
 
-var text = fs.readFileSync("studentkeys.ans", "utf-8");
-var end = text.lastIndexOf(",");
+let text = fs.readFileSync("./output-student/studentkeys.ans", "utf-8");
+let end = text.lastIndexOf(",");
 text = "["+text.substring(0, end)+"]";
 text = text.replace(/\\/g, "\\\\");
 
 //console.log("Before json");
 //console.log(text);
 
-var json = JSON.parse(text);
+let json = JSON.parse(text);
 
 //console.log("AFTER JSON");
 //console.log(json)
 
-var tex = [];
+let tex = [];
 
 //Sort answers by chapter and by page
 
 //chapters = { 1: {pagina1: {exercici1: {opts: {}, answers: ] } }}}
 
-var chapters = {};
-var chaporder = [];
+let chapters = {};
+let chaporder = [];
 json.forEach(function(e){
 	if(e.part){
 		e.chap = e.part;
@@ -45,18 +45,18 @@ json.forEach(function(e){
 	if(e.type===0 || isNaN(e.exer) || e.chap==0){
 		return;	
 	}
-	var chap = chapters[e.chap];
+	let chap = chapters[e.chap];
 	if(!chap){
 		chaporder.push(e.chap);
 		chapters[e.chap] = {pages: {} };
 		chap = chapters[e.chap];
 	}
-	var page = chap.pages[e.page]; 
+	let page = chap.pages[e.page]; 
 	if(!page){
 		chap.pages[e.page] = {exer: {} };
 		page = chap.pages[e.page];
 	} 
-	var exer = page.exer[e.exer];
+	let exer = page.exer[e.exer];
 	if(!exer){
 		//Must expand answers in case of array defined by [xxx, yyy, zzz]. Note that [] are mandatory
 		page.exer[e.exer] = {opts: {}, answers:[], id: e.id};
@@ -64,12 +64,12 @@ json.forEach(function(e){
 		//Check if e contains opts
 		if(e.opts){
 			e.opts.toLowerCase().split(",").forEach(function(opt){
-							var pair = opt.split("=");
+							let pair = opt.split("=");
 							page.exer[e.exer].opts[pair[0].trim()] = pair[1].trim();					 
 						})
 		}
 
-		var tmp = e.ans.trim();
+		let tmp = e.ans.trim();
 		if(tmp.indexOf("[")===0){
 			 tmp.substring(1, tmp.length-1).split(", ").forEach(function(t){
 				page.exer[e.exer].answers.push(t);
@@ -90,40 +90,40 @@ chaporder.forEach(function(c){
 	} else{
 		tex.push("\n \\vspace{1cm} \n\n \\needspace{5\\baselineskip} \n \\heading{Solucions del Bloc "+c+"}\n");
 	}
-	var chap = chapters[c];
-	for(var p in chap.pages){
+	let chap = chapters[c];
+	for(let p in chap.pages){
 		//tex.push("\n\\begin{minipage}{0.5\\textwidth}");
 	tex.push("\\vspace{0.3cm}\n\n \\needspace{3\\baselineskip} \n");
 		tex.push("\\hyperlink{page."+p+"}{\\textbf{\\em Pàgina "+p+"}}");
 		tex.push("\\begin{enumerate}");
 		page = chap.pages[p];
-		var index = 0;
-		for(var i in page.exer){
+		let index = 0;
+		for(let i in page.exer){
 			index += 1;
 			if(index===2){	
 				tex.push("\\begin{enumerate}"); //
 			}
-			var opts = page.exer[i].opts;
+			let opts = page.exer[i].opts;
 			exer = page.exer[i].answers;
-			var id = page.exer[i].id;
+			let id = page.exer[i].id;
 			if(exer.length===1){
 				tex.push("\\phantomsection");
 				tex.push("\\item[\\fontfamily{phv}\\selectfont\\color{blue}\\textbf{\\ref{exer:"+id+"}. }] \\label{ans:"+id+"} ");
-				var anstext = exer[0];
+				let anstext = exer[0];
 				//check for errors in anstext
 				anstext = anstext.replace(/end \{tasks\}/gi,"end{tasks}").replace(/begin \{tasks\}/gi,"begin{tasks}")  
 				tex.push(anstext);
 			} else {
 				
-				var maxtlen = 0;
-				var cols = 3;
+				let maxtlen = 0;
+				let cols = 3;
 				if(opts.cols){
 					cols = opts.cols;	
 				} else {
 
 				//Automatic length control
 				exer.forEach(function(t){
-					var ttemp = t.replace(/\\frac/gi, "").replace(/\\sqrt/gi, "").replace(/^/gi, "");
+					let ttemp = t.replace(/\\frac/gi, "").replace(/\\sqrt/gi, "").replace(/^/gi, "");
 					if(ttemp.length>maxtlen){
 						maxtlen = ttemp.length;
 					}
@@ -138,7 +138,7 @@ chaporder.forEach(function(c){
 
 				}
 
-				var nnn = getForceColumns(p, i);
+				let nnn = getForceColumns(p, i);
 				if(nnn){
 					console.log("getForceColumns ",p, ", ", i," = ",nnn)
 					cols = nnn;
@@ -149,7 +149,7 @@ chaporder.forEach(function(c){
 			        tex.push(" \\begin{tasks}[column-sep=1em, item-indent=1.3333em]("+cols+")");
 				
 				exer.forEach(function(t){
-					var decora = "";
+					let decora = "";
 					if(t.length>30){
 						decora = "*";
 					}
@@ -172,4 +172,4 @@ chaporder.forEach(function(c){
 });
 
 console.log("Dumping generated tex file...")
-fs.writeFileSync("studentkeys.tex", tex.join("\n"));
+fs.writeFileSync("./src/studentkeys.tex", tex.join("\n"));

@@ -1,25 +1,37 @@
 {
-  "name": "matematiques-3eso",
-  "version": "1.0.0",
-  "description": "Llibre de matematiques 3r ESO",
+  "name": "llibre-matematiques-3eso",
+  "version": "3.0.0",
+  "description": "Llibre de matemàtiques de 3r d'ESO",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "student-genkeys": "node ./scripts/generate-student-keys.js",
+    "student-draft": "export TEXINPUTS=\".:./src:\" && pdflatex -draftmode -interaction=batchmode --output-directory=output-student src/llibre-3eso-student.tex",
+    "student-book": "mkdir -p output-student && npm run-script student-draft && npm run-script student-genkeys && npm run-script student-draft && pdflatex -output-directory=output-student src/llibre-3eso-student.tex",
+    "teacher-pax": "/usr/local/texlive/2016/texmf-dist/scripts/pax/pdfannotextractor.pl ./output-student/llibre-3eso-student.pdf",
+    "teacher-genkeys": "node ./scripts/generate-teacher-book.js",
+    "teacher-draft": "export TEXINPUTS=\".:./src:\" && pdflatex -draftmode -interaction=batchmode --output-directory=output-teacher src/llibre-3eso-teacher.tex",
+    "teacher-book": "npm run-script teacher-pax && mkdir -p output-teacher && npm run-script teacher-genkeys && pdflatex -draftmode -output-directory=output-teacher src/llibre-3eso-teacher.tex && pdflatex -output-directory=output-teacher src/llibre-3eso-teacher.tex",
+    "answers-genkeys": "node ./scripts/generate-answers-book.js",
+    "answers-book": "export TEXINPUTS=\".:./src:\" && mkdir -p output-answers && npm run-script student-draft && npm run-script answers-genkeys && pdflatex -draftmode -output-directory=output-answers src/llibre-3eso-answers.tex && pdflatex -output-directory=output-answers src/llibre-3eso-answers.tex && open -a Preview output-answers/llibre-3eso-answers.pdf",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "help": "echo \"npm run student-book :: Generates student's book\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jmulet/llibre-matematiques-3eso.git"
   },
   "keywords": [
-    "3ESO",
-    "Maths",
-    "LaTeX",
-    "book"
+    "Matemàtiques",
+    "Llibre",
+    "LaTeX"
   ],
   "author": "Josep Mulet",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/jmulet/llibre-matematiques-3eso/issues"
   },
-  "homepage": "https://github.com/jmulet/llibre-matematiques-3eso#readme"
+  "homepage": "https://github.com/jmulet/llibre-matematiques-3eso#readme",
+  "dependencies": {
+    "roman-numerals": "^0.3.2"
+  }
 }
