@@ -1,0 +1,472 @@
+\documentclass{article}
+\newcounter{minitocdepth}
+\newcounter{chapter}
+\newcommand{\chaptername}{}
+\usepackage{iesbbook}
+\newcommand{\vs}{\vspace{0cm}}
+%\geometry{a4paper,total={170mm,257mm},left=30mm,right=23mm,top=15mm,bottom=15mm}
+
+\renewcommand{\hot}[1][]{
+	\ifthenelse{\equal{#1}{}}{$\mathbf{\bigstar}$ \underline{\textbf{LLIBRE}}: }{\myrepeat{#1}{$\mathbf{\bigstar}$}}
+}
+\renewcommand{\normalsize}{\fontsize{10.5}{11.2}\selectfont}
+
+\fancypagestyle{blocfancy}{
+	\pagestyle{fancy}% Duplicate fancy page style
+	\fancyhead{} % clear all header fields
+	\fancyhead[RE,LO]{{IES Binissalem. Matemàtiques 4t ESO}}
+	\fancyhead[LE,RO]{\bfseries\large\thepage}
+}
+\let\ofrac\frac
+\let\frac\dfrac
+
+\begin{document}
+  \pagestyle{blocfancy}
+  \setcounter{myenumi}{0}
+  \begin{center}
+  	\large
+  	\textbf{\underline{
+  			Feina per als alumnes que han de cursar Matemàtiques Acadèmiques a 4t d'ESO.
+  		}
+  	}
+  \end{center}
+  
+  
+  
+  \begin{blueshaded}
+  	\textbf{Instruccions: } Realitzau en un quadern (pot ser el mateix que fareu servir per l'assignatura durant el proper curs) les activitats proposades en aquest dossier. Aquesta feina es presentarà al professor del proper curs durant els primers dies de classe. La realització correcta d'aquesta tasca serà valorada com a nota de la primera avaluació.
+  	
+  	\textbf{Ajuda: } Si necessitau ajuda podeu consultar els apunts o el llibre de text de 3r d'ESO  i els recursos penjats a https://piworld.es. 
+  \end{blueshaded}
+  
+  \section{Potències i Radicals}
+  \begin{mylist}
+  	
+  	\item Calcula el valor de les potències:
+  	\begin{tasks}(3)
+  		\task $(-9)^0=$
+  		\task $(-2)^3=$
+  		\task $(-12)^2=$
+  		\task $(-1)^{-6}=$
+  		\task $(-66)^0=$
+  		\task $(-10)^{-4}=$
+  		\task $(-6)^{-2}=$
+  		\task $(-10)^6=$
+  		\task $(-300)^3=$
+  		\task $(-20)^{-3}=$
+  		\task $(-70)^2=$
+  		\task $(-90)^{-2}=$
+  	\end{tasks}
+  	
+  	\item Opera les potències:
+  	\begin{tasks}(2)
+  		\task $(-2)^2 \cdot (-2)^3 \cdot (-2)^4=$
+  		\task $2^{-2} \cdot 2^3 : (-2)^4=$
+  		\task $(-2)^3 \cdot (-8)^3 : 4^3=$
+  		\task $5^{-2} \cdot 5^{-3} \cdot 5^4=$
+  		\task $2^{-2} : 2^{-3}=$
+  		\task $ [ (-2)^{-2} ]^3 \cdot (-2)^3 : (-2)^4=$
+  		\task $[ (-3)^6 : (-3)^3 ]^3 \cdot (-2)^9=$		
+  		\task $\frac{\left(5^{-3}\right)^2 \cdot 5^{-1} \cdot 5^2}{5^{-15}}=$	
+  		\task $\frac{\left(2^{-2}\right)^{-3} \cdot 2^{-3} \cdot 2^{10}}{2^0 \cdot 2^2 \cdot (-2)^{8} \cdot 2}=$	
+  		\task $\left[ \frac{(-9)^{-2}}{3^{-4}}\right]^{-2}=$
+  	\end{tasks}
+  	
+  	\item Expressa aquestes potències com a radicals:
+  	\begin{tasks}(3)
+  		\task $2^{1/2}=$
+  			\task $2^{3/2}=$
+  				\task $\left(\frac{1}{3}\right)^{1/5}=$
+  					\task $(-125)^{1/3}=$
+  						\task $(-2)^{4/5}=$
+  							\task $\left(\frac{1}{a^2}\right)^{2/3}=$
+  								\task $\left(\frac{2}{5}\right)^{3/4}=$
+  									\task $5^{1/2}=$
+  									\task $11^{2/5}=$
+  	\end{tasks}
+  	
+  	\item Expressa aquests radicals com a potències:
+  	\begin{tasks}(3)
+  		\task $\sqrt[5]{8^3}=$
+  		\task $\sqrt[7]{9^2}=$
+  		\task $\sqrt{5^7}=$
+  		\task $\sqrt{3^5}=$
+  		\task $\sqrt{6}=$
+  		\task $\sqrt[3]{2^3}=$
+  		\task $\sqrt[4]{2^8}=$
+		\task $\sqrt[3]{2^{16}}=$
+		\task $\sqrt[4]{2^{32}}=$
+  	\end{tasks}
+  
+  \vspace{2cm}
+  \item Calcula el valor dels radicals. En cas que no siguin exactes, utilitza la calculadora. Si no es poden fer indica que no existeix.
+  \begin{tasks}(3)
+  	\task $\sqrt{169}=$
+  	\task $\sqrt[3]{-125}=$
+  	\task $\sqrt[4]{81}=$
+  	\task $\sqrt[4]{-16}=$
+  	\task $\sqrt[3]{\frac{8}{27}}=$
+  	\task $\sqrt[5]{30}=$
+  	%\task $\sqrt[5]{-32}=$
+	%\task $\sqrt[6]{-1000000}=$
+	%\task $\sqrt[3]{-1000000}=$
+ \end{tasks}
+
+  \item Simplifica aquestes expressions amb radicals
+\begin{tasks}(2)
+	\task $\sqrt{2} + 2\sqrt{2} - 4 \sqrt{2}=$
+	\task $5\sqrt{2} + 2\sqrt{3} + 3 \sqrt{2}=$
+	\task $\frac{2}{3}\sqrt{5} + 3\sqrt{5} - \frac{5}{2} \sqrt{5}=$
+	\task $\frac{1}{2}\sqrt[3]{2} + \frac{1}{3}\sqrt[3]{2} - 3 \sqrt{2}=$	
+\end{tasks}  
+  
+  
+  \item Opera i expressa com un sol radical
+  \begin{tasks}(4)
+  	\task $\sqrt{5} \sqrt{2} =$ 
+  	\task $\sqrt[3]{5} \sqrt[3]{25} =$
+  	\task $\frac{\sqrt[3]{4}}{ \sqrt[3]{2}} =$
+  	%\task $\sqrt{\sqrt{x}} =$
+  	\task $\sqrt[5]{\sqrt[3]{x^2}} =$
+  	%\task $\sqrt[8]{\sqrt[4]{\sqrt{x}}} =$
+  \end{tasks}
+ 
+  \end{mylist}
+  
+  
+  
+  
+  \section{Polinomis}
+  \begin{mylist}
+  	
+  	\item Siguin els polinomis $P=3x^3+2x^2-5x+4$, $Q=5x^3-3x^2+1$ i $R=-5x^3+x^2-7$, calculau
+  	\begin{tasks}(4)
+  		\task $P+Q+R$
+  		\task $2P-R$
+  		\task $P\cdot (Q+R)$
+  		\task $(Q+R)^2$
+  	\end{tasks}
+  	
+  	\item Desenvolupa les identitats notables
+  \begin{tasks}(3)
+  	\task $(x+2)^2=$
+  	\task $(x-2)^2=$
+  	\task $(x+2)\cdot(x-2)=$
+  	\task $(2x+3)^2=$
+  	\task $(2x-3)^2=$
+  	\task $(2x+3)\cdot (2x-3)=$
+  	\task $\left(x^2-\frac{1}{x}\right)^2=$
+  	\task $(x^2+2y)^2=$
+  	\task $(5-2x^3)\cdot(5+2x^3)=$ 	
+  \end{tasks}
+  	
+  	\item Escriu cada polinomi com una identitat notable
+  	  \begin{tasks}(3)
+  		\task $x^2+2x+1=$
+  		\task $4x^2-4x+1=$
+  		\task $x^2-9=$
+  		\task $4x^2+ 12x +9=$
+  		\task $4x^2-12x+9=$
+  		\task $25x^2-16=$
+  		\task $\frac{1}{x^2}+4 + 4x^2=$
+  		\task $y^2-x^2=$
+  		\task $49 - 140x^2 + 49x^4 =$ 	
+  	\end{tasks}
+  	
+  	\item Treu factor comú
+  	  \begin{tasks}(3)
+  		\task $4x+2=$
+  		\task $x^2+2x=$
+  		\task $5x^2+10x=$
+  		\task $12x^2+4x+8=$
+  		\task $12x^5-9x^3+3x^2=$
+  		\task $x^3-x^2=$
+  		\task $x^2 y + y^2 y + 2 xy =$
+  		\task $15abc + 5ab^2c - 25 abc^2=$
+  		\task $\frac{x^2}{9}+ \frac{x}{18} =$ 	
+  	\end{tasks}
+  	
+  	\item Treu factor comú i escriu com una identitat notable
+  	\begin{tasks}(3)
+  		\task $x^3+2x^2+x=$
+  		\task $x^3-x=$
+  		\task $3x^2+12x+12=$
+  		\task $x^4-2x^3+x^2=$
+  		\task $4x^5-x^3=$
+  		\task $40x^2+40x+10=$
+  		\task $2x^3+12x^2+12x=$
+  		\task $5x^4-20x^3+20x^2=$
+  		\task $2x^6-18x^4=$ 	
+  	\end{tasks}
+  	
+  	
+  	\item  Divideix els següents polinomis:   
+  	\begin{tasks}
+  		\task $2x^{4} -x^{2} -x+7$ entre $x^{2} +2x+4$.    
+  		\task $-10x^{3} -2x^{2} +3x+4$ entre $5x^{3} -x^{2} -x+3$
+  		\task $4x^{5} -6x^{3} +6x^{2} -3x-7$ entre $-2x^{3} +x+3$   
+  		\task $-8x^{5} -2x^{4} +10x^{3} +2x^{2} +3x+5$ entre $4x^{3} +x^{2} +x-1$ 
+  		\task $-6x^{5} +x^{2} +1$ entre $x^{3} +1$ 
+  	\end{tasks}
+  	
+  	
+  	\item  Utilitza la regla de {Ruffini} per realitzar les següents divisions de polinomis:
+  	\begin{tasks}(2)
+  		\task $-3x^{2} +x+1$ entre $x-1$  
+  		\task $x^{4} +2x^{3} -2x+1$ entre $x-2$
+  		\task $4x^{3} -3x^{2} -1$ entre $x+1$   
+  		\task $x^{3} -9x+1$ entre $x-3$ 
+  	\end{tasks}
+ 
+  \end{mylist}
+  
+   
+  
+  \section{Equacions i sistemes }
+  \begin{mylist}
+  	
+  	
+  	\item Resol aquestes equacions utilitzant la tècnica més adient en cada cas: 
+  	\begin{tasks}(2)
+  		\task $4(x-3) - 5 (1-x) = x + 2 (3x-2)$
+  		\task $\frac{x+1}{2} -\frac{(2-3x)}{8} = \frac{5}{6}$
+  		\task $(x-4)\cdot (x+3)=0$
+  		\task $2x^2+3x-5=0$
+  		\task  $(x+1)^2 - (x-2)^2=7$
+  	 	\task  $3x^{2} -75=0$
+  		\task  $x\cdot (x+1)=2$   
+  	  	\task  $x^{2} -x=0$
+  		\task  $x^{4} -13x^{2} +36=0$  
+  		\task $x \cdot (x-4)=5$
+  	\end{tasks}
+  	
+  	
+ 
+  	
+  	\item   Resol els sistemes lineals pel mètode que vulguis
+  	\begin{tasks}(2)
+  		\task $\left\{\begin{array}{l} {5y-3x=72+5x} \\ {15x=y-1} \end{array}\right. \; $    
+  		\task  $\left\{\begin{array}{l} {x+2y=22} \\ {5(x-5)=y-3} \end{array}\right. \; $  
+  		\task  $\left\{\begin{array}{l} {x+y=12} \\ {x-y=8} \end{array}\right. \; $      
+  		\task  $\left\{\begin{array}{l} {x+y=11} \\ {x-y=-3} \end{array}\right. \; $  
+  		\task $\left\{\begin{array}{l} {3(x+y)-1=5x-4y} \\ {2x+3(y+1)=x+3(x+y-1)} \end{array}\right. \; $  
+  		\task  $\left\{\begin{array}{l} {4(x-1)-3(y+2)=-5y+x} \\ {5(x+3)=2y-3(y+x)+7} \end{array}\right. \; $
+  	\end{tasks}
+  	
+   
+  \end{mylist}
+  
+  
+  \section{Funcions}
+  
+  \begin{mylist}
+  	
+  	\item Resol gràficament el sistema d'equacions 
+  	$ \left\{ \begin{array}{rl}
+  	-x+y &= 5 \\ x^2+2x-y&=1
+  	\end{array} \right.$.
+  	
+  	Per això aïlla la $y$ de cada equació i representa gràficament les funcions que obtinguis. El punt de tall entre les dues corbes són les solucions. Quantes solucions trobes?
+  	
+  	\item Representa gràficament les següents funcions elementals:
+  	
+  	\begin{tasks}(3)
+  		\task $y=x+4$
+  		\task $y=\frac{x}{2}-4$
+  		\task $y=-\frac{2x}{3}$
+  		\task $y=x^2-1$
+  		\task $y=9-x^2$	
+  		\task $y=4x^2+4x+1$
+  	\end{tasks} 
+  	
+  \end{mylist}
+  \newpage
+  \heading{Algunes solucions}
+  \setcounter{myenumi}{0}
+  \begin{multicols}{2}
+  	\small
+  	\begin{mylist}
+  		\item \begin{tasks}(2)
+  			\task 1
+  			\task --8
+  			\task 144
+  			\task 1
+  			\task 1
+  			\task 1/10000
+  			\task 1/36
+  			\task 1000000
+  			\task --27000000
+  			\task --1/400
+  			\task 4900
+  			\task 1/8100
+  		\end{tasks}
+  	 
+  	\item \begin{tasks}(2)
+  		\task $(-2)^9$
+  		\task $2^{-3}=1/8$
+  		\task $4^3$
+  		\task $5^{-1}=1/5$
+  		\task $2$
+  		\task $(-2)^{-7}$
+  		\task $6^9$
+  		\task $5^{10}$
+  		\task $2^5$
+  		\task $1$
+  	\end{tasks}
+  		
+  	\item \begin{tasks}(2)
+  		\task $\sqrt{2}$
+  		\task $\sqrt{2^3}$
+  		\task $\sqrt[5]{\frac{1}{3}}$
+  		\task $\sqrt[3]{-125}$
+  		\task $\sqrt[5]{(-2)^4}$
+  		\task $\sqrt[3]{a^{-4}}$
+  		\task $\sqrt[4]{\left(\frac{2}{5}\right)^3}$
+  		\task $\sqrt{5}$
+  		\task $\sqrt[5]{11^2}$
+  	\end{tasks}
+  
+  \item
+   \begin{tasks}(2)
+  	\task $8^{3/5}$
+  	\task $9^{7/2}$
+  	\task $5^{7/2}$
+  	\task $3^{5/2}$
+  	\task $6^{1/2}$
+  	\task $2$
+	\task $8^{1/4}$
+	\task $2^{16/3}$
+	\task $2^{8}$
+  \end{tasks}
+
+\item \begin{tasks}(3)
+	\task 13
+	\task --5
+	\task 3
+	\task No existeix
+	\task $\frac{2}{3}$
+	\task $1.974$
+\end{tasks}
+
+\item  \begin{tasks}(2)
+	\task $-\sqrt{2}$
+	\task $8\sqrt{2}+2\sqrt{3}$
+	\task $\frac{7}{6}\sqrt{5}$
+	\task $\frac{5}{6}\sqrt[3]{2} -3\sqrt{2}$
+\end{tasks}
+
+\item \begin{tasks}(2)
+	\task $\sqrt{10}$
+	\task $\sqrt[3]{125}=5$
+	\task $\sqrt[3]{2}$
+	\task $\sqrt[15]{x^2}$
+\end{tasks}
+
+\item \begin{tasks}
+	\task $3x^3-5x-2$
+	\task $11x^3+3x^2-10x+15$
+	\task $-6x^5-4x^4-8x^3-20x^2+30x-24$
+	\task $4x^4+24x^2+36$
+\end{tasks}
+
+\item  \begin{tasks}(2)
+	\task $x^2+4x+4$
+	\task $x^2-4x+4$
+	\task $x^2-4$
+	\task $4x^2+6x+9$
+	\task $4x^2-12x+9$
+	\task $4x^2 - 9$
+	\task $x^4 - 2x + 1/x^2$
+	\task $x^4+4x^2\, y+4y^2$
+	\task $25-4x^6$
+\end{tasks}
+  	
+  	\item  \begin{tasks}(2)
+  		\task $(x+1)^2$
+  		\task $(2x-1)^2$
+  		\task $(x+3)\cdot(x-3)$
+  		\task $(2x+3)^2$
+  		\task $(2x-3)^2$
+  		\task $(5x+4)\cdot (5x-4)$
+  		\task $\left(1/x + 2x\right)^2$
+  		\task $(y+x)\cdot (y-x)$
+  		\task No és una identitat
+  	\end{tasks}
+  		
+  \item   \begin{tasks}(2)
+  	\task $2(x+1)$
+  	\task $x\cdot (x+2)$
+  	\task $5x \cdot (x+2)$
+  	\task $4 (3x^2+x+2)$
+  	\task $3 x^2 (4x^3-3x+1)$
+  	\task $x^2 (x-1)$
+  	\task $y (x^2 + y^2 + 2x)$
+  	\task $5 a b c (3+b-5c)$
+  	\task $\frac{x}{9} \left(x+\frac{1}{2}\right)$
+  \end{tasks}
+ 
+\item  \begin{tasks}(2)
+	\task $x\cdot (x+1)^2$
+	\task $x \cdot (x+1) \cdot (x-1)$
+	\task $3 (x+2)^2$
+	\task $x^2 (x-1)^2$
+	\task $x^3 (2x+1)(2x-1)$
+	\task $10 (2x+1)^2$
+	\task $2x(x^2+6x+6)$
+	\task $5x^2 ( x-2)^2$
+	\task $2x^4 (x+3)(x-3)$ 
+\end{tasks}
+
+
+	\item 
+\begin{tasks} 
+	\task $Q=2\,x^2-4\,x-1$, $R= 17\,x+11$ 
+	\task $Q=-2$, $R= -4\,x^2+x+10$
+	\task {\small $Q=-2\,x^2+3\,x-1$, $R= 9\,x^2-11\,x-4$  }
+	\task $Q=-2$, $R= -4\,x^2+x+10 $
+	\task $Q=-6\,x^2 $, $R=7\,x^2+1$  
+\end{tasks}
+ 
+\item 
+\begin{tasks}
+	\task $Q=-3\,x-2 $, $R=-1$  
+	\task $Q= x^3+4\,x^2+8\,x+14 $, $R=29$  
+	\task $Q=4\,x^2+x+1$, $R=0$  
+	\task $Q= x^2+3\,x $, $R=1$ 
+\end{tasks}
+
+
+\item \begin{tasks}(2)
+	\task $x=\frac{13}{2}$
+	\task $x=\frac{2}{3}$
+	\task $x=4, x=-3$
+	\task $x=-\ofrac{5}{2}, x=1$
+	\task $x=\frac{5}{3}$
+	\task $x=-5, x=5$
+	\task $x=1, x=-2$
+	\task $x=0, x=1$
+	\task $x=\pm 2, \pm 3$
+	\task $x=-1, x=5$
+\end{tasks}
+
+\item
+\begin{tasks}(2)
+	\task $x=1; y=16$     \task $x=6; y=8$     \task $x=10; y=2$     \task $x=4; y=7$    \task $x=3; y=1$   \task  $x=-2; y=8$
+\end{tasks}
+
+\item $x=2, y=7$ i $x=-3, y=2$.
+
+\item 
+
+\begin{tasks}
+	\task Recta creixent, pendent 1
+	\task Recta creixent, pendent 1/2
+	\task Recta decreixent per (0,0)
+	\task Paràbola còncava, $V(0,-1)$
+	\task Paràbola convexa, $V(0,9)$
+	\task Paràbola còncava, $V(-2, 0)$
+\end{tasks}	
+\end{mylist}
+  \end{multicols}
+\vspace{-1cm}
+\end{document}

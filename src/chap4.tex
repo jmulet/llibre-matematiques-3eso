@@ -110,7 +110,7 @@ Construeix una taula de freqüències i dibuixa un diagrama de barres.
 
  \textbf{Fases d'un estudi estadístic:}
 \begin{enumerate} 
-	\item  Tenir clara la pregunta i el tipus de variable estadística que es vol estudiar.  
+	\item Tenir clara la pregunta i el tipus de variable estadística que es vol estudiar.  
 	\item Prendre una mostra representativa.
 	\item Recollir les dades (fent una enquesta, etc.) 
 	\item  Fer un recompte de dades, càlculs de paràmetres estadístics i gràfics.
@@ -137,7 +137,7 @@ Construeix una taula de freqüències i dibuixa un diagrama de barres.
 \task  Quantes monedes portes en la butxaca? \dotfill\hspace{1cm}
 \task  Quina és la teva altura? \dotfill\hspace{1cm}
 %\task  Quantes marques de xocolata recordes?
-\task  Quins són les marques de xocolata que recordes? \dotfill\hspace{1cm}
+\task  Quines són les marques de xocolata que recordes? \dotfill\hspace{1cm}
 \task  Quants germans tens? \dotfill\hspace{1cm}
 \task  Quin és el teu color favorit per a un cotxe? \dotfill\hspace{1cm}
 \task  Quant temps passes al dia veient la televisió? \dotfill\hspace{1cm}
@@ -190,17 +190,19 @@ Agrupa aquests resultats en intervals començant en 10 segons i de longitud 1 se
 
 \answers{
 \begin{tabular}{c|c}
-Segons & f \\ \hline
-10 &   3    \\ 
-11 &   4 \\ 
-12 &   3 \\ 
-13 &   3 \\ 
-14 &   0 \\ 
-15 &   4 \\ 
-16 &   3 \\ 
-18 &   3 \\ 
-19 &   2 \\ 
-20 &   2  \\ 
+Interval & f \\ \hline
+10 -- 11 &   3    \\ 
+11 -- 12 &   3 \\ 
+12 -- 13&   4 \\ 
+13 -- 14&   3 \\ 
+14 -- 15&   3 \\ 
+15 -- 16&   0 \\ 
+16 -- 17&   4 \\ 
+17 -- 18&   3 \\ 
+18 -- 19&   3 \\ 
+19 -- 20 &  2  \\
+20 -- 21 & 2 \\ \hline
+ & 30 \\ 
 \end{tabular}
 \par
 \includegraphics[width=0.35\textwidth]{img-sol/t4-7}
@@ -445,7 +447,7 @@ Nombre de persones: & 13 & 18 & 7 & 5 & 7 \\ \hline
 	\task Calcula el rang, la desviació mitjana, la variància i la desviació típica.	
 \end{tasks}
 
-\answers{[Mitjana = 2.5; Mediana = 2; Moda = 2, \includegraphics[width=0.35\textwidth]{img-sol/t4-13}\par \ggblink{https://goo.gl/RtMKif}]}
+\answers{[Mitjana = 2.5; Mediana = 2; Moda = 2; Var=1.81; $\sigma=1.345$;  CV=0.538, \includegraphics[width=0.35\textwidth]{img-sol/t4-13}\par \ggblink{https://goo.gl/RtMKif}]}
  
 \newpage
 
@@ -578,8 +580,8 @@ Determina el nombre de vots dels altres partits. Representa en un diagrama de ba
 \begin{mylist}
 \exer \mental Per a cadascun d'aquests experiments indica si és determinista o aleatori.
 \begin{tasks} 
-	\task  Traiem una carta a l'atzar d'una baralla espanyola i mirem el pal.
-	\task  Traiem una bola d'una bossa que només conté boles vermelles i miram el color.
+	\task  Treim una carta a l'atzar d'una baralla espanyola i mirem el pal.
+	\task  Treim una bola d'una bossa que només conté boles vermelles i miram el color.
 	\task  Mesurem la quantitat de gasoil que cap en dipòsit el nostre cotxe.
 	\task  Cronometram el temps que tardam d'anar de casa al col·legi en diferents dies.
 	\task  Llancem dos daus i mirem si ha sortit igual puntuació en els dos.
@@ -590,7 +592,7 @@ Determina el nombre de vots dels altres partits. Representa en un diagrama de ba
 \answers{E=$\{VV, VN, NV, NN \}$}
   
 \vspace{-2cm}
-\exer \simbolsearch \begin{minipage}[t]{0.7\textwidth} \textit{\bf Experiment llançament de monedes}. Agafa una moneda d'un euro per exemple. Primer de tot, decideix que banda és cara (C) i quina creu (X). Ara llança la moneda 10 vegades i compta quantes cares han sortit.  Tot seguit, el professor anirà demanant a cada grup quins han estat els resultats i els apuntarem en aquesta taula
+\exer \simbolsearch \begin{minipage}[t]{0.7\textwidth} \textit{\bf Experiment llançament de monedes}. Agafa una moneda d'un euro per exemple. Primer de tot, decideix quina banda és cara (C) i quina creu (X). Ara llança la moneda 10 vegades i compta quantes cares han sortit.  Tot seguit, el professor anirà demanant a cada grup quins han estat els resultats i els apuntarem en aquesta taula
 	\end{minipage}
 \begin{minipage}{0.3\textwidth}
 	\vspace{2cm}
@@ -600,7 +602,7 @@ Determina el nombre de vots dels altres partits. Representa en un diagrama de ba
 	
 
 \begin{longtable}{|p{0.7in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|} \hline 
-N. Tirades & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 & 120 & 130 & 140 & 150 \\ \hline 
+N. Tirades & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 & 110 & 120 & 130 & 140 \\ \hline 
 N. Cares &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline 
 Freq.\newline relativa &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline 
 \end{longtable}
@@ -627,7 +629,7 @@ Freq.\newline relativa &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
 \end{minipage}
 
 \begin{longtable}{|p{0.7in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|p{0.2in}|} \hline 
-	N. Tirades & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 & 120 & 130 & 140 & 150 \\ \hline 
+	N. Tirades & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 & 110 & 120 & 130 & 140 \\ \hline 
 	N. Amunt &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline 
 	Freq.\newline relativa &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline 
 \end{longtable}
@@ -684,10 +686,10 @@ a) Dau cúbic (6 cares)\newline \includegraphics*[bb=0 0 0.66in 0.70in, width=0.
 \begin{tasks}(2)
 	\task  Sigui blava.    
 	\task  No sigui negra.
-	\task  Sigui roja o verda.   
+	\task  Sigui vermella o verda.   
 	\task  No sigui groga ni negra.
 \end{tasks}
-\answers{[$\frac{4}{20}$, $\frac{19}{20}$, $\frac{13}{20}$, $\frac{11}{20}$]}
+\answers{[$\frac{4}{20}$, $\frac{19}{20}$, $\frac{13}{20}$, $\frac{17}{20}$]}
  
 
 \exer  Raona de quina de les bosses següents és més probable treure una bola negra:

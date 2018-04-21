@@ -37,13 +37,13 @@
 
 \begin{theorybox}
  \video[ytid=MUZZ7aFAIDA]{134}{Successions}
- Una \textbf{successió} és una \textbf{llista ordenada} de nombres obtinguts a partir d'una regla de formació fixada. A cadascun dels nombres s'anomenen \textbf{termes}. Per exemple, la llista de nombres senars 1, 3, 5, $\cdots$ té com a primer terme $a_1 = 1$, segon terme $a_2=3$, etc.
+ Una \textbf{successió} és una \textbf{llista ordenada} de nombres obtinguts a partir d'una regla de formació fixada. A cadascun dels nombres se'ls anomena \textbf{terme}. Per exemple, la llista de nombres senars 1, 3, 5, $\cdots$ té com a primer terme $a_1 = 1$, segon terme $a_2=3$, etc.
  
  Una successió es pot donar de diferents formes:
  \begin{itemize}
- 	\exer Donants els seus primers termes: 1, 2, 3, 5, $\cdots$
+ 	\exer Donants els seus primers termes: 1, 3, 5, 7, $\cdots$
  	\exer A partir del terme general:  $a_n = 2n-1$
- 	\exer A partir d'una relació de recurrència:  $a_1 = 1$ i $a_{n+1} = a_n + 1$
+ 	\exer A partir d'una relació de recurrència:  $a_1 = 1$ i $a_{n+1} = a_n + 2$
  \end{itemize}
 \end{theorybox}
 \vspace{-0.5cm}
@@ -552,7 +552,7 @@ Quina opció li interessa més?
 \answers{La raó és 3}
 
 \exer[2]  En la successió $7, 11, 15, 19, 23, \cdots$, quin lloc ocupa el terme 335?
-\answers{Posició $n=335$}
+\answers{Posició $n=83$}
 
 \exer[2]  Què val la suma dels deu primers termes de la progressió aritmètica: 7, 13, 19, 31,{\dots}?
  \answers{Sumen 340}
@@ -561,10 +561,10 @@ Quina opció li interessa més?
 \answers{És una progressió geomètrica. La raó és 3.}
 
 \exer[2]  Calcula el terme general de la successió: $2, 10, 50, 250, 1250, \cdots$.
-\answers{Progressió geomètrica $a_{n} = 2·5^{n-1}$  }
+\answers{Progressió geomètrica $a_{n} = 2 \cdot 5^{n-1}$  }
 
 \exer[2] Quant sumen les potències de 2 compreses entre 2${}^{1}$ i 2${}^{10}$?
-\answers{Sumem 2048}
+\answers{Sumem 2046}
  
 \exer[2]  Calcula el terme general de la progressió aritmètica el primer terme de la qual és 1 i la seva diferència 2.
 \answers{ $a_{ n} = 2n + 1$ }
@@ -576,7 +576,7 @@ Quina opció li interessa més?
 \answers{192 pàgines dia 7; 381 pàgines en total}
  
 \exer[2]  A n'en Bernat li han tocat 6000 \euro{} en la loteria i decideix dipositar-los al banc a un tipus d'interès compost del 4 \%. Quants diners tindrà al cap de 5 anys?
-\answers{7299,92 \euro{}}
+\answers{$6000\cdot 1,04^5 = 7299,92$ \euro{}}
 
 \end{mylist}
 
@@ -633,8 +633,130 @@ Cerca més informació sobre aquesta successió i  la seva relació amb el nombr
  \textit{P${}_{n}$} = $\pm \sqrt{\left(a_{1} \cdot a_{n} \right)^{n} } $ = $\pm a_{1} \cdot r^{\ofrac{n-1}{2} } $  & \textit{P}${}_{9}$ = + $\sqrt{(3\cdot (3\cdot 2^{8} ))^{9} } $=(3 $\cdot$ 2${}^{4}$)${}^{9}$\newline  \\ \hline 
 \end{longtable}
 
- 
+
+\begin{extrapage}
+	
+\setcounter{myenumi}{0}
+\heading{FITXA 1: EXERCICIS DE SUCCESSIONS}
+\vso
+
+\begin{mylist}
+	
+	\item Escriu els tres primers termes de les successions
+	\begin{tasks}(2)
+		\task $a_n = (n-1)^3$
+		\task $b_n = n + \frac{3}{n+1}$
+		\task $c_n = 3 + 5(n-1)$
+		\task $d_n = 3 \cdot \left( \frac{1}{2} \right)^n$
+		\task $e_n = (n-1)(n-2)$
+		\task $f_n = n^2 - n$
+	\end{tasks}
+	
+	\item Calcula el terme que ocupa el lloc desè de les successions següents:
+	\begin{tasks}(3)
+		\task $a_n = 3n-1$
+		\task $b_n = \frac{n^2+1}{2}$
+		\task $c_n = (-1)^n + \frac{1}{n}$
+		\task $d_n=\frac{1}{2}+\frac{(-1)^{n+1}}{10}$
+		\task $e_n = n (n-1)$
+		\task $f_n = \frac{n}{3} + \frac{3}{n}$
+	\end{tasks}
+	
+	\item Forma una successió recurrent amb aquestes dades. Escriure-ne només els 6 primers termes.
+	
+	\qquad $j_1=2$  \qquad $j_2=3$  \qquad $j_n=j_{n-1} - j_{n-2}$  
+ 	
+	\item Escriu els quatre primers termes de la successió següent: $a_1=\frac{1}{3}$ i $a_n = 2 a_{n-1}+3$.
+	
+	\item Troba el terme general de cada una de les successions. Calcula el terme 100è.
+	\begin{tasks}(2)
+		\task 12, 14, 16, 18, $\cdots$
+		\task $\frac{1}{2}$, $\frac{2}{3}$, $\frac{3}{4}$, $\frac{4}{5}$, $\cdots$
+		\task $-1$ 2, $-3$, 4, $\cdots$
+		\task 1, 3, 9, 27, $\cdots$
+	\end{tasks}
+	
+	\item Afegeix un terme nou i escriu la relació de recurrència de la successió següent: 
+	$1, 2, 3, 6, 11, 20, \cdots$  (\textit{Pista: relaciona cada terme amb els tres anteriors.})
+	
+		\item Calcula $a_1$, $a_2$ i $a_{10}$ de cadascuna de les successions següents:
+	\begin{center}
+		\renewcommand{\arraystretch}{1.5}
+		\begin{longtable}{|p{0.03\textwidth}|p{0.3\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|} \hline 
+		\rowcolor{lightgray}	& $\mathbf{a_n}$ & $a_1$ & $a_2$ & $a_{10}$ \\ \hline
+		\cellcolor{lightgray}	a) & $a_n = 2n-1$ &  &  &  \\ \hline
+		\cellcolor{lightgray}	b) & $a_n = \frac{4n-3}{2}$ & & & \\ \hline
+		\cellcolor{lightgray}	c) & $a_n = n^2 -3n+5$ & & & \\  \hline
+		\cellcolor{lightgray}	d) & $a_n = 2^{n-1}$ & & & \\  \hline
+		\cellcolor{lightgray}	e) & $a_n= (-3)^n$ & & & \\  \hline
+		\end{longtable}	
+	\end{center}	
+\end{mylist}
+
+\end{extrapage}	
+
+\newpage
+
+\begin{extrapage}
+	
+\setcounter{myenumi}{0}
+
+\heading{FITXA 2: EXERCICIS DE PROGRESSIONS}
 
 
+\begin{center}
+	\textbf{RECORDA:} 
+	\textbf{Aritmètica}: $a_n=a_1+d\cdot (n-1)$ \qquad \textbf{Geomètrica}: $a_n= a_1 \cdot r^{n-1}$
+\end{center}
+
+\begin{mylist}
+	
+	\item Digues si són Successió, Progressió aritmètica o Progressió geomètrica. Escriu dos termes més en cada cas. En cas que sigui una progressió digues què val la seva diferència $d$ o la raó $r$.
+	
+	\begin{longtable}{|p{0.25\textwidth}|p{0.25\textwidth}|p{0.22\textwidth}|p{0.22\textwidth}|} \hline 
+	\rowcolor{lightgray}	& \textbf{Succ., PA o PG?} & $\mathbf{a_5}$ & $\mathbf{a_6}$ \\ \hline 
+		a) 100, 80, 64, 51.2, ... & & & \\ \hline 
+		b) 1, 4, 9, 16, ... & & & \\ \hline 
+		c) 1.2, 0.8, 0.4, 0, ...& & & \\ \hline 
+		d) 16, 24, 36, 54, ... & & & \\ \hline 
+	\end{longtable}
+
+	
+	\item Escriu el terme general de les \underline{progressions} de l'exercici anterior.
+ 	
+	\item Calcula el terme 31 de les progressions següents:
+	\begin{longtable}{|p{0.33\textwidth}|p{0.31\textwidth}|p{0.31\textwidth}|} \hline 
+	\rowcolor{lightgray} & $\mathbf{a_n}$ & $\mathbf{a_{31}}$ \\ \hline 
+	a) 3, 6, 12, 24, ... & &  \\ \hline 
+	b) 19, 26, 33, 40, ... & &  \\ \hline 
+	c) 90, --30, 10, --10/3, ...& &  \\ \hline 
+	d) 5, 7, 9, 11, 13, ... & &  \\ \hline 
+	e) 80, 8, 0.8, 0.08, ... & &  \\ \hline 
+	\end{longtable}	 
+	
+	\item En una progressió geomètrica sabem que $a_{10}=50$ i $a_{11}=60$. Calcula el primer terme.
+	  
+	\item El tercer terme d'una progressió geomètrica és 12 i la raó 5; calcula el terme desè.
+	
+	\item La dosi d'un medicament és de 100 mg el primer dia i 0.5 mg menys cadacun dels dies següents. El tractament dura 120 dies. Quina quantitat de medicament ha près en total el malalt?
+	
+	\item Un tipus de bacteri es reprodueix per bipartició, és a dir, es duplica cada quart d'hora. Si inicialment hi havia 10 bacteris, quants n'hi haurà passades 6 hores?
+	
+	\item Calcula les següents sumes:
+	\begin{tasks}(2)
+		\task 1 + 3 + 5 + $\cdots$ + 999
+		\task 3 + 5 + 8 + $\cdots$ + 253
+		\task 0.2 + 0.4 + 0.8 + $\cdots$ + 102.4
+	\end{tasks}
 
 
+	\item He decidit estalviar diners, 2 euros per començar i 20 cèntims cada dia. Em demano quants de diners tindré estalviats al cap d'un mes (de 30 dies)?
+	
+	
+	\item La meva cosina ha tornat encantada de les vacances. Ha compartit amb 3 amics les seves fotos en la xarxa social. Cadascun d'ells, al seu torn, les comparteix amb 3 amics més, i així successivament. Quantes persones podran veure les fotos de les vacances de la meva cosina si s'han compartit fins el grau 10è d'amistat?
+	
+	
+\end{mylist}
+
+
+\end{extrapage}
