@@ -1,0 +1,1 @@
+pdf2svg teacher-book.pdf $d.svg all

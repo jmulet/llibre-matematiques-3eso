@@ -1,0 +1,25 @@
+{
+  "name": "matematiques-3eso",
+  "version": "1.0.0",
+  "description": "Llibre de matematiques 3r ESO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmulet/llibre-matematiques-3eso.git"
+  },
+  "keywords": [
+    "3ESO",
+    "Maths",
+    "LaTeX",
+    "book"
+  ],
+  "author": "Josep Mulet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmulet/llibre-matematiques-3eso/issues"
+  },
+  "homepage": "https://github.com/jmulet/llibre-matematiques-3eso#readme"
+}
