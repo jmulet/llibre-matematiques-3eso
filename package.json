@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "student-genkeys": "node ./scripts/generate-student-keys.js",
-    "student-draft": "export TEXINPUTS=\".:./src:\" && pdflatex -draftmode -interaction=batchmode --output-directory=output-student src/llibre-3eso-student.tex",
+    "student-draft": "export TEXINPUTS=\".:./src:\" && pdflatex -draftmode --output-directory=output-student src/llibre-3eso-student.tex",
     "student-book": "mkdir -p output-student && npm run-script student-draft && npm run-script student-genkeys && npm run-script student-draft && pdflatex -output-directory=output-student src/llibre-3eso-student.tex",
     "teacher-pax": "/usr/local/texlive/2016/texmf-dist/scripts/pax/pdfannotextractor.pl ./output-student/llibre-3eso-student.pdf",
     "teacher-genkeys": "node ./scripts/generate-teacher-book.js",

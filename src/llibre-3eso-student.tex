@@ -1,11 +1,22 @@
-\PassOptionsToPackage{export}{adjustbox}
 \documentclass[11pt, a4paper, twoside, pdf]{book}
+\PassOptionsToPackage{export}{adjustbox}
 % Opcions 
 %  draft : mostra una marca d'aigua sense figures
 %  bn : la majoria de colors són escala de grisos --> Utilitzar per la versio per imprimir
 %  ebook: per generar un ebook amb marca d'aigua
 \usepackage[]{iesbbook}
- 
+
+\newcounter{\nopagecount}
+
+\newenvironment{extrapage}{
+	\clearpage\stepcounter{nopagecount}%
+	\renewcommand{\thepage}{Fitxa \arabic{nopagecount}}%
+	\thispagestyle{empty}
+}
+{
+	\clearpage \addtocounter{page}{-1}
+}
+	
 
 \makesolucionari
 
