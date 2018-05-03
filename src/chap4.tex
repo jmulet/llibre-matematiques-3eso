@@ -202,7 +202,7 @@ Interval & f \\ \hline
 18 -- 19&   3 \\ 
 19 -- 20 &  2  \\
 20 -- 21 & 2 \\ \hline
- & 30 \\ 
+ Total & 30 \\ 
 \end{tabular}
 \par
 \includegraphics[width=0.35\textwidth]{img-sol/t4-7}
@@ -592,7 +592,8 @@ Determina el nombre de vots dels altres partits. Representa en un diagrama de ba
 \answers{E=$\{VV, VN, NV, NN \}$}
   
 \vspace{-2cm}
-\exer \simbolsearch \begin{minipage}[t]{0.7\textwidth} \textit{\bf Experiment llançament de monedes}. Agafa una moneda d'un euro per exemple. Primer de tot, decideix quina banda és cara (C) i quina creu (X). Ara llança la moneda 10 vegades i compta quantes cares han sortit.  Tot seguit, el professor anirà demanant a cada grup quins han estat els resultats i els apuntarem en aquesta taula
+\exer \simbolsearch \begin{minipage}[t]{0.7\textwidth} \textit{\bf Experiment llançament de monedes}.
+	 Agafa una moneda d'un euro per exemple. Primer de tot, decideix quina banda és cara (C) i quina creu (X). Ara llança la moneda 10 vegades i compta quantes cares han sortit.  Tot seguit, el professor anirà demanant a cada grup quins han estat els resultats i els apuntarem en aquesta taula
 	\end{minipage}
 \begin{minipage}{0.3\textwidth}
 	\vspace{2cm}
@@ -897,14 +898,17 @@ Llançam un dau i treim una carta d'una baralla espanyola de 40 cartes. Quina é
 	\task  Cap sigui negra.
 	\task  Compara els resultats amb els de l'activitat \ref{list:boles}.
 \end{tasks}
-\answers[cols=3]{[$\dfrac{91}{100}$, $\dfrac{35}{38}$, $\dfrac{3}{38}$]}
+\answers[cols=3]{[$\dfrac{91}{190}$, $\dfrac{35}{38}$, $\dfrac{3}{38}$]}
 
- \exer Amb una baralla espanyola es fa l'experiment de treure tres cartes, amb reemplaçament, quina és la probabilitat de treure tres reis? I si l'experiment es fa sense reemplaçament, quin és ara la probabilitat de tenir 3 reis? 
+ \exer Amb una baralla espanyola es fa l'experiment de treure tres cartes amb reemplaçament.
+	   Quina és la probabilitat de treure tres reis? 
+	   I si l'experiment es fa sense reemplaçament, quin és ara la probabilitat de tenir 3 reis? 
  
  \answers[cols=1]{[Amb reemplaçament $P(RRR)=\frac{4}{40}\cdot \frac{4}{40} \cdot \frac{4}{40} =\frac{1}{1000}=0.001$,
  	Sense reemplaçament $P(RRR)=\frac{4}{40}\cdot \frac{3}{39} \cdot \frac{2}{38} =\frac{1}{2470}=0.0004$]}
  
  \newpage
+
 \exer  Es llança una moneda fins que aparegui cara dues vegades seguides. 
 
 \begin{tasks}
@@ -918,13 +922,14 @@ Llançam un dau i treim una carta d'una baralla espanyola de 40 cartes. Quina é
 \answers{$P=0.9999$}
   
 
- \exer Es fa un estudi sobre els incendis forestals d'una zona i es comprova que el 40 \% són intencionats, el 50 \% es deuen a negligències i el 10 \% a causes naturals. S'han produït tres incendis,  quina és la probabilitat que
+ \exer Es fa un estudi sobre els incendis forestals d'una zona i es comprova que el 40 \% 
+ són intencionats, el 50 \% es deuen a negligències i el 10 \% a causes naturals. 
+ S'han produït dos incendis, quina és la probabilitat que
 
- 
  \begin{minipage}{0.8\textwidth}
 	\begin{tasks}
+		\task  els dos incendis es deguin a causes naturals.
 		\task  almenys un hagi estat intencionat?
-		\task  els tres incendis es deguin a causes naturals.
 		\task  cap incendi sigui per negligències.
 	\end{tasks}
 \end{minipage}
@@ -934,7 +939,8 @@ Llançam un dau i treim una carta d'una baralla espanyola de 40 cartes. Quina é
 \end{minipage}
 
 \answers{\includegraphics[width=0.35\textwidth]{img-sol/t4-42} \par
-\begin{tasks} \task $P=1 – P(cap intencionat) = 1 – 0.63 = 0.784$ \task $P=(0.1)^3=0.001$, $P=0.5^3=0.125$ \end{tasks}}
+\begin{tasks} \task $P=0,1\cdot 0,1 = 0,01$ 
+			  \task $P=1-P(cap intencionat)= 1 - [0,5\cdot (0,5+0,1) + 0,1\cdot (0,5+0,1)]=0,64$, $P=0,25$ \end{tasks}}
 
 \exer  Es llança dues vegades un dau equilibrat amb sis cares. Trobar la probabilitat que la suma dels valors que apareixen en la cara superior sigui múltiple de tres. 
 \answers{Fer el producte cartesià.\par S'obté $P=\frac{12}{36}=\frac{1}{3}$}
