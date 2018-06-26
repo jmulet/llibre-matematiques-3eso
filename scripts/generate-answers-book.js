@@ -41,7 +41,7 @@ tex.push("\\begin{center}");
 tex.push("\\vspace*{0.5cm}\\hrule\\vspace{0.5cm}");
 tex.push("\\Huge \\textbf{Matemàtiques 3r ESO} \\par");
 //tex.push("\\Large 1r de Batxillerat de ciències\\par");
-tex.push("\\large \\textit{Sèrie Pràctica}\\par");
+tex.push("\\large \\textit{Sèrie Pràctica \\textbf{3a Edició}}\\par");
 tex.push("\\vspace{0.5cm}\\hrule\\vspace{0.5cm}");
 tex.push("\\Huge \\textbf{\\textsc{Solucionari}} \\par \\vspace{1.5cm}");
 
